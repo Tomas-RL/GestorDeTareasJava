@@ -6,6 +6,10 @@ public class GestorDeTareas {
         return lista.size();
     }
 
+    public static boolean tareaExiste(ArrayList<String> lista, String tarea) {
+        return lista.contains(tarea);
+    }
+
     public static void main(String[] args) {
         ArrayList<String> tareas = new ArrayList<>();
         Scanner sc = new Scanner(System.in);
@@ -34,6 +38,17 @@ public class GestorDeTareas {
                     System.out.println("Tareas: " + tareas);
                     System.out.println("Total: " + contarTareas(tareas));
                     break;
+                case 4:
+                    System.out.println("Escribe la tarea a buscar:");
+                    sc.nextLine();
+                    String buscar = sc.nextLine();
+                    if (tareaExiste(tareas, buscar)) {
+                        System.out.println("La tarea existe.");
+                    } else {
+                        System.out.println("La tarea NO existe.");
+                    }
+                    break;
+
             }
         } while (opcion != 3);
         sc.close();
